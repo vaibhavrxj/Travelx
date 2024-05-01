@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body{
+            background: linear-gradient(120deg,#4d9cd0, #c065e7);
+        }
+        .mainBox{
+            width: 350px;
+            height: 350px;
+            text-align: center;
+            margin: 200px auto;
+            color: white;
+        }
+        #h1{
+            font-weight: 600;
+        }
+
+        input{
+            width: 300px;
+            height: 40px;
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: rgb(219, 248, 248);
+            font-weight: 500;
+            color: black;
+        }
+        /* #forgot{
+            text-align: right;
+            margin-top: 1px;
+            margin-right: 22px;
+            font-weight: 300;
+            opacity: .5;
+            cursor: pointer;
+        } */
+        #login{
+            width: 300px;
+            height: 40px;
+            margin-top: 30px;
+            border: 2px solid rgb(127, 244, 127);;
+            border-radius: 15px;
+            background-color: #1f41a9;
+            font-weight: 700;
+            color: rgb(127, 244, 127);
+            cursor: pointer;
+
+        }
+        #register{
+            font-size: 15px;
+            margin-top: 0;
+        }
+        a{
+            color: rgb(236, 236, 48);
+        }
+
+    </style>
+</head>
+<body>
+   <form action="http://127.0.0.1:8080/loggedin" method="post">
+
+    <div class="mainBox">
+        <h1 id="h1">Login</h1>
+        <p id="h2">Please enter your Email and Password</p>
+        <input type="text" placeholder="Username" name="username"><br><br>
+        <input type="password" placeholder="Password" name="pass">
+        <!-- <p id="forgot">Forgot password?</p> -->
+        <button type="submit" id="login">Login</button><br><br>
+        <p id="register">Not a member yet? <a href="register.html">Register!</a></p>
+        
+    </div>
+   </form>
+</body>
+</html>

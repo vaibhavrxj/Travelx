@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+
+body{
+            background: linear-gradient(120deg,#2980b9, #8e44ad);
+        }
+        form {
+            width: 460px;
+            height: 450px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            margin: 100px auto ;
+            background-color: rgba(242, 246, 249,0.5);
+            
+
+        }
+        td {
+            text-align: left;
+            padding-left: 10px;
+            padding-top: 16px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, textarea{
+          
+            border-color: rgb(232, 150, 243);
+            border-radius: 5px;
+            background-color: rgba(242, 246, 249,0.5);
+            
+        }
+    </style>
+
+</head>
+
+<body>
+    
+
+    <form  id="myform" action="http://127.0.0.1:8080/store" method="post">
+        <h1>Register Yourself</h1>
+        <table>
+
+            <tr>
+                <td><label for="name">Full Name</label></td>
+                <td><input type="text" id="name" name="fname"  placeholder="Enter your Name"></td>
+                <td><span id="ferr"></span></td>
+            </tr>
+
+            <tr>
+                <td> <label for="username">Username</label></td>
+                <td><input type="text" id="username" name="uname"  placeholder="Create username"></td>
+                <td><span id="lerr"></span></td>
+            </tr>
+
+
+            <tr>
+                <td> <label for="add">Address</label></td>
+                <td> <textarea id="add" cols="30" rows="4" name="add"  placeholder="Address"></textarea></td>
+                <td><span id="aerr"></span></td>
+            </tr>
+
+            <tr>
+                <td> <label for="pass">Password</label></td>
+                <td> <input type="password" id="pass" name="pas"  placeholder="Password"></td>
+                <td><span id="perr"></span></td>
+            </tr>
+
+            <tr>
+                <td> <label for="cpass">confirmPass</label></td>
+                <td> <input type="password" id="cpass" placeholder="Confirm-Password"></td>
+                <td><span id="cperr"></span></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"> <input type="checkbox" id="agree">
+                    <label for="agree" id="agree">I agree to the terms and conditions</label>
+                </td>
+                <td></td>
+            </tr>
+
+
+        </table>
+        <button id="btn">Submit</button>
+       <!-- <input type="button" id="btn"> -->
+        <input type="reset">
+
+    </form>
+
+    <script>
+
+        var agree = document.querySelector("#agree");
+        var btn = document.querySelector("#btn");
+
+        btn.hidden = true;
+
+        agree.addEventListener("change", function (event) {
+
+            if (this.checked) {
+                btn.hidden = false;
+            } else {
+                btn.hidden = true;
+            }
+
+        });
+
+
+
+        var myform = document.querySelector("#myform");
+        myform.addEventListener("submit", function (event) {
+            // event.preventDefault();
+            if (validate()) {
+                alert("Form submitted successfully");
+            }
+        });
+
+        function validate() {
+            let isValid = true;
+            var name = document.querySelector("#name").value;
+            var username = document.querySelector("#username").value;
+            var add = document.querySelector("#add").value;
+            var pass = document.querySelector("#pass").value;
+            var cpass = document.querySelector("#cpass").value;
+            var ferr = document.querySelector("#ferr");
+            var lerr = document.querySelector("#lerr");
+            var aerr = document.querySelector("#aerr");
+            var perr = document.querySelector("#perr");
+            var cperr = document.querySelector("#cperr");
+            if (name === "") {
+                ferr.innerHTML = "Required!";
+                isValid = false;
+            }
+            if (username === "") {
+                lerr.innerHTML = "Required!";
+                isValid = false;
+            }
+            if (add === "") {
+                aerr.innerHTML = "Required!";
+                isValid = false;
+            }
+            if (pass === "") {
+                perr.innerHTML = "Required!";
+                isValid = false;
+            }
+            if (cpass === "") {
+                cperr.innerHTML = "Required!";
+                isValid = false;
+            }
+            if (pass != cpass) {
+                alert("Password must be same");
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+    </script>
+
+
+</body>
+
+</html>

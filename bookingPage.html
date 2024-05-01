@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+
+    <style>
+
+        body{
+                    background: linear-gradient(120deg,#2980b9, #8e44ad);
+                }
+                form {
+                    width: 460px;
+                    height: 350px;
+                    background-color: white;
+                    border-radius: 8px;
+                    padding: 10px;
+                    text-align: center;
+                    margin: 100px auto ;
+                    /* background-color: #4FC3F7; */
+                    background-color: rgba(242, 246, 249,0.5);
+        
+                }
+                td {
+                    text-align: left;
+                    padding-left: 10px;
+                    padding-top: 16px;
+                }
+        
+                h2 {
+                    text-align: center;
+                }
+            </style>
+
+</head>
+
+<body>
+    
+<form action="" >
+    <h1>Book Here</h1>
+    <table>
+
+        <tr>
+            <td><label for="name">First Name</label></td>
+            <td><input type="text" id="name" placeholder="First Name"></td>
+            <td><span id="ferr"></span></td>
+        </tr>
+
+
+        <tr>
+            <td> <label for="source">Source Address</label></td>
+            <td> <input type="text" id="source" placeholder="Source address"></td>
+            <td><span id="perr"></span></td>
+        </tr>
+
+        <tr>
+            <td> <label for="desti">Destination Address</label></td>
+            <td> <input type="text" id="desti" placeholder="Destination Address"></td>
+            <td><span id="cperr"></span></td>
+        </tr>
+
+        <tr>
+            <td> <label for="dare">Date of Travelling</label></td>
+            <td> <input type="date" id="date" placeholder="Date of travelling"></td>
+            <td><span id="aerr"></span></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"> <input type="checkbox" id="agree">
+                <label for="agree" id="agree">I agree to the terms and conditions</label>
+            </td>
+            <td></td>
+        </tr>
+
+
+    </table>
+
+    <input type="submit" id="btn">
+    <input type="reset">
+
+
+</form>
+
+<script>
+
+    var agree = document.querySelector("#agree");
+    var btn = document.querySelector("#btn");
+
+    btn.hidden = true;
+
+    agree.addEventListener("change", function (event) {
+
+        if (this.checked) {
+            btn.hidden = false;
+        } else {
+            btn.hidden = true;
+        }
+
+    });
+
+
+
+    var myform = document.querySelector("#myform");
+    myform.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (validate()) {
+            alert("Booking successfully");
+        }
+    });
+
+    function validate() {
+        let isValid = true;
+        var name = document.querySelector("#name").value;
+        var source = document.querySelector("#source").value;
+        var desti = document.querySelector("#desti").value;
+        var date = document.querySelector("#date").value;
+      
+        var ferr = document.querySelector("#ferr");
+      
+        var aerr = document.querySelector("#aerr");
+        var perr = document.querySelector("#perr");
+        var cperr = document.querySelector("#cperr");
+        if (name === "") {
+            ferr.innerHTML = "Required!";
+            isValid = false;
+        }
+        if (source === "") {
+            perr.innerHTML = "Required!";
+            isValid = false;
+        }
+        if (desti === "") {
+            cperr.innerHTML = "Required!";
+            isValid = false;
+        }
+        if (date === "") {
+            aerr.innerHTML = "Required!";
+            isValid = false;
+        }
+    
+
+        return isValid;
+    }
+
+</script>
+
+</body>
+</html>
