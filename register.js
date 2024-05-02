@@ -19,7 +19,7 @@ async function main() {
 
 const registerSchema = new mongoose.Schema({
     Name: {
-        tnype: String,
+        type: String,
         required: true,
     },
     Username: {
